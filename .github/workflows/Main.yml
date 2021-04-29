@@ -26,7 +26,6 @@ jobs:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
       - name: Nuget.Config check
         run: | 
-          cat nuget.config
           ls -laht
           ls -laht ./bin
         shell: bash
