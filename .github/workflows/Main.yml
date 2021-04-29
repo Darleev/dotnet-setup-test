@@ -24,11 +24,11 @@ jobs:
           source-url: https://api.nuget.org/v3/index.json
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
-      - run: | 
-          dotnet new nugetconfig
-          ls
       - name: Nuget.Config check
-        run: cat nuget.config
+        run: | 
+          cat nuget.config
+          ls -laht
+          ls -laht ./bin
         shell: bash
       - name: Create nuget package
         run: dotnet pack --configuration Release dotnet-setup-test.csproj
