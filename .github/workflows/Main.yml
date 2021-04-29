@@ -27,8 +27,9 @@ jobs:
       - run: | 
           dotnet new nugetconfig
           ls
-          ls bin
-          ls bin/Release
+      - name: Nuget.Config check
+        run: cat nuget.config
+        shell: bash
       - name: Create nuget package
         run: dotnet pack --configuration Release dotnet-setup-test.csproj
       - name: Shell script
