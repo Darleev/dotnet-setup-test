@@ -35,7 +35,7 @@ jobs:
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: dotnet new nugetconfig
+      # - run: dotnet new nugetconfig
 
       # - name: global json
       #   shell: pwsh
