@@ -18,53 +18,15 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-
-      # - name: Setup dotnet
-      #   uses: actions/setup-dotnet@v1
-      #   with:
-      #     dotnet-version: '5.0.x'
-      #   env:
-      #     DOTNET_INSTALL_DIR: 'C:\Program Files\dotnet'
-
       - name: Setup dotnet
         uses: actions/setup-dotnet@v1
         with:
+          dotnet-version: 3.1.x
           source-url: https://nuget.pkg.github.com/Darleev/index.json
-          config-file: ./nuget.config
-          # owner: v-vlsafo
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      # - run: dotnet new nugetconfig
-
-      # - name: global json
-      #   shell: pwsh
-      #   run: Get-Content global.json
-
-      # - name: Add Azure Nuget feed
-      #   run: dotnet nuget add source https://buildcanary.pkgs.visualstudio.com/CanaryBuilds/_packaging/testReadmeFeed/nuget/v3/index.json -n "AzureFeed" --configfile ../nuget.config --store-password-in-clear-text -p ${{ secrets.AZ_TOKEN }} -u v-vlsafo
-
-      - name: Nuget.config
-        shell: pwsh
-        run: Get-Content '../nuget.config'
-        
-      - name: Build project
-        run: dotnet build
-
       - name: Create nuget package
         run: dotnet pack --configuration Release dotnet-setup-test.csproj
 
       - name: Publish nuget package
-        run: |
-          dotnet nuget push bin/Release/*.nupkg
-
-      # - name: Setup dotnet
-      #   uses: actions/setup-dotnet@v1
-      #   with:
-      #     source-url: https://buildcanary.pkgs.visualstudio.com/CanaryBuilds/_packaging/testReadmeFeed/nuget/v3/index.json
-      #   env:
-      #     NUGET_AUTH_TOKEN: ${{ secrets.AZ_TOKEN }}
-
-      # - name: Publish nuget package
-      #   run: |
-      #     dotnet nuget push ./bin/Release/*.nupkg -k ${{ secrets.AZ_TOKEN }}
+        run: dotnet nuget push bin/Release/*.nupkg
