@@ -5,7 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>dotnet_setup_test</RootNamespace>
     <IsPackable>true</IsPackable>
-    <PackageId>GPRTestPackage</PackageId>
+    <PackageId>DariyNurgaleev</PackageId>
     <Version>1.2.6</Version>
     <Authors>vsafonkin</Authors>
     <Company>akvelon</Company>
