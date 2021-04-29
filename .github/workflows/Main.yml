@@ -30,6 +30,7 @@ jobs:
         run: | 
           ls -laht
           ls -laht ./bin
+          ls -laht ./bin/Release
         shell: bash
       - name: Publish nuget package
         run: dotnet nuget push bin/Release/*.nupkg -s https://api.nuget.org/v3/index.json
