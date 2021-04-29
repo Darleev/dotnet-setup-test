@@ -26,5 +26,7 @@ jobs:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
       - name: Create nuget package
         run: dotnet pack --configuration Release dotnet-setup-test.csproj
+      - name: Shell script
+        run: ls 
       - name: Publish nuget package
         run: dotnet nuget push bin/Release/*.nupkg
