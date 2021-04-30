@@ -22,6 +22,7 @@ jobs:
         with:
           dotnet-version: 5.0.x
           source-url: https://api.nuget.org/v3/index.json
+          owner: "v-danurg"
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
       - name: Create nuget package
