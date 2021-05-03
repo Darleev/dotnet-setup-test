@@ -24,9 +24,9 @@ jobs:
           source-url: https://api.nuget.org/v3/index.json
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
-      - run: nuget setApiKey $NUGET_AUTH_TOKEN -ConfigFile ../nuget.config
-        env:
-          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
+      #- run: nuget setApiKey $NUGET_AUTH_TOKEN -ConfigFile ../nuget.config
+       # env:
+        #  NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
       - name: Create nuget package
         run: dotnet pack --configuration Release dotnet-setup-test.csproj
       - name: Nuget.Config check
