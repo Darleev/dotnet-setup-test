@@ -22,7 +22,7 @@ jobs:
         with:
           dotnet-version: 5.0.x
           source-url: https://api.nuget.org/v3/index.json
-          owner: "v-danurg@microsoft.com"
+          owner: ""
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
       - run: nuget setApiKey $NUGET_AUTH_TOKEN
