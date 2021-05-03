@@ -33,7 +33,8 @@ jobs:
       - name: Nuget.Config check
         run: | 
           cat ../nuget.config
-          sed 's/Darleev//g' ../nuget.config > newfile
+          # sed 's/Darleev//g' ../nuget.config > newfile
+          grep -v "Username" ../nuget.config > newfile
           rm -rf ../nuget.config
           cp newfile ../nuget.config
           cat ../nuget.config
