@@ -23,9 +23,9 @@ jobs:
           dotnet-version: 5.0.x
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
-#      - run: nuget setApiKey $NUGET_AUTH_TOKEN
-#        env:
-#          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
+      - run: nuget setApiKey $NUGET_AUTH_TOKEN
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
       - name: Create nuget package
         run: dotnet pack --configuration Release dotnet-setup-test.csproj
       - name: Nuget.Config check
