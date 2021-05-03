@@ -21,22 +21,14 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 5.0.x
-          source-url: https://api.nuget.org/v3/index.json
-          owner: " "
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
-      - run: nuget setApiKey $NUGET_AUTH_TOKEN
-        env:
-          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
+#      - run: nuget setApiKey $NUGET_AUTH_TOKEN
+#        env:
+#          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
       - name: Create nuget package
         run: dotnet pack --configuration Release dotnet-setup-test.csproj
       - name: Nuget.Config check
-        run: | 
-          cat ../nuget.config
-          # sed 's/Darleev//g' ../nuget.config > newfile
-          grep -v "Username" ../nuget.config > newfile
-          rm -rf ../nuget.config
-          cp newfile ../nuget.config
           cat ../nuget.config
         shell: bash
       - name: Publish nuget package
