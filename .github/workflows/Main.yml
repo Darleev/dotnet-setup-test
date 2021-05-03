@@ -32,9 +32,10 @@ jobs:
         run: dotnet pack --configuration Release dotnet-setup-test.csproj
       - name: Nuget.Config check
         run: | 
-          ls -laht
-          ls -laht ./bin
-          ls -laht ./bin/Release
+          cat ../nuget.config
+          sed 's/Darleev//g' cat../nuget.config > newfile
+          rm -rf ../nuget.config
+          cp newfile ../nuget.config
           cat ../nuget.config
         shell: bash
       - name: Publish nuget package
